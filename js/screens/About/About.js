@@ -15,6 +15,7 @@ export default class About extends Component {
               </Text>
             </View>
           )}
+          keyExtractor={(item, index) => item.id}
           ItemSeparatorComponent={() => {
             return <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />;
           }}
