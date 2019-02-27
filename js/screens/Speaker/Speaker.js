@@ -1,25 +1,18 @@
 import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 export default class About extends Component {
   render() {
     return (
-      <View>
-        <FlatList
-          style={{ color: "white" }}
-          data={this.props.data.allConducts}
-          renderItem={({ item }) => (
-            <View>
-              <Text style={{ fontSize: 50 }}>{item.title}</Text>
-              <Text>
-                {item.description} {item.order}
-              </Text>
-            </View>
-          )}
-          ItemSeparatorComponent={() => {
-            return <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />;
-          }}
+      <View style={{ marginTop: 40 }}>
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="X"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
         />
+        <Text>Speaker Carddd</Text>
+        <Text>{this.props.speaker}</Text>
       </View>
     );
   }
