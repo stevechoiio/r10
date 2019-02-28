@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, Button } from "react-native";
+import { Text, View, FlatList, Button, Image } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
+
 export default class About extends Component {
   render() {
     return (
@@ -11,8 +12,12 @@ export default class About extends Component {
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
         />
-        <Text>Speaker Carddd</Text>
-        <Text>{this.props.speaker}</Text>
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={{ uri: `${this.props.data.image}` }}
+        />
+        <Text>{this.props.data.name}</Text>
+        <Text>{this.props.data.bio}</Text>
       </View>
     );
   }

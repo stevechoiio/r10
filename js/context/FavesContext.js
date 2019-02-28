@@ -16,11 +16,13 @@ class FavesProvider extends Component {
   getFaveIDs = async () => {
     try {
       const allFaves = await getFaves();
+
       const faveIDs = allFaves.map(fave => {
-        fave[0];
+        return fave[0];
       });
 
-      this.setState({ faveIDs });
+      this.setState({ faveIDs: faveIDs });
+      console.log(this.state);
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +38,7 @@ class FavesProvider extends Component {
   removeFaveID = async faveID => {
     try {
       await removeFave(faveID);
-      this.getFaveIDs;
+      this.getFaveIDs();
     } catch (error) {
       console.log(error);
     }

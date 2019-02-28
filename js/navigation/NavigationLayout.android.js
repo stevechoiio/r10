@@ -52,9 +52,31 @@ const FavesStack = createStackNavigator(
     })
   }
 );
-export default createDrawerNavigator({
-  Schedule: ScheduleStack,
-  Maps: MapsStack,
-  Faves: FavesStack,
-  About: AboutStack
-});
+export default createDrawerNavigator(
+  {
+    Schedule: ScheduleStack,
+    Maps: MapsStack,
+    Faves: FavesStack,
+    About: AboutStack
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      drawerIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+
+        let iconName;
+        if (routeName === "About") {
+          iconName = `ios-information-circle`;
+        } else if (routeName === "Schedule") {
+          iconName = `ios-options`;
+        } else if (routeName === "Maps") {
+          iconName = "ios-map";
+        } else if (routeName === "Faves") {
+          iconName = `ios-heart`;
+        }
+
+        return <Icon name={iconName} size={25} color={"red"} />;
+      }
+    })
+  }
+);

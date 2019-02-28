@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Schedule from "./Schedule";
+import Schedule from "./Schedule.ios";
 import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
@@ -27,10 +27,6 @@ export default class ScheduleContainer extends Component {
               description
               id
               location
-              speaker {
-                id
-              }
-
               startTime
               title
             }

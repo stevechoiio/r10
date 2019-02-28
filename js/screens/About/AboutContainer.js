@@ -3,7 +3,6 @@ import { ActivityIndicator, Text, View } from "react-native";
 import About from "./About";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import FavesContext from "../../context";
 
 export default class AboutContainer extends Component {
   render() {

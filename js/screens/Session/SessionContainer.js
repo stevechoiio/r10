@@ -1,36 +1,36 @@
 import React, { Component } from "react";
-
+import { ActivityIndicator } from "react-native";
 import Session from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavesContext from "../../context";
+
 export default class SessionContainer extends Component {
   render() {
     const { navigation } = this.props;
 
-    const scheduleID = navigation.getParam("scheduleID");
-
-    const speaker = navigation.getParam("speaker");
-
+    const sessionID = navigation.getParam("sessionID");
+    console.log(sessionID);
     return (
       <Query
         query={gql`
-          {
-            allSessions {
-              description
+          query Session($sessionID: ID!) {
+            allSessions(filter: { id: $sessionID }) {
               id
-              location
+              title
+              description
               speaker {
                 id
+                name
+                image
               }
-
-              startTime
-              title
             }
           }
         `}
+        variables={{ sessionID }}
       >
         {({ loading, error, data }) => {
+          console.log(data);
           if (loading)
             return (
               <ActivityIndicator
@@ -43,11 +43,11 @@ export default class SessionContainer extends Component {
           return (
             <FavesContext.Consumer>
               {value => {
+                console.log(value);
                 return (
                   <Session
                     navigation={navigation}
-                    scheduleID={scheduleID}
-                    speaker={speaker}
+                    data={data.allSessions[0]}
                     value={value}
                   />
                 );

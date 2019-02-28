@@ -1,27 +1,65 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
-import About from "./Favourites";
+import Favourites from "./Favourites";
+import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavesContext from "../../context";
+const formatSessionData = sessions => {
+  return sessions
+    .reduce((acc, curr) => {
+      const timeExists = acc.find(section => section.title === curr.startTime);
+      timeExists
+        ? timeExists.data.push(curr)
+        : acc.push({ title: curr.startTime, data: [curr] });
+      return acc;
+    }, [])
+    .sort((a, b) => a.title - b.title);
+};
 
-export default class AboutContainer extends Component {
+export default class FavouritesContainer extends Component {
   render() {
     return (
       <Query
         query={gql`
           {
-            allConducts {
-              id
-              title
+            allSessions {
               description
-              order
+              id
+              location
+
+              startTime
+              title
             }
           }
         `}
       >
         {({ loading, error, data }) => {
-          return <About data={data} />;
+          if (loading)
+            return (
+              <ActivityIndicator
+                style={{ alignItems: "center" }}
+                size="large"
+                color="black"
+              />
+            );
+          let formattedData = formatSessionData(data.allSessions);
+
+          return (
+            <FavesContext.Consumer>
+              {value => {
+                let newData = formattedData.filter(data => {
+                  return value.faveIDs.includes(data.data[0].id);
+                });
+                return (
+                  <Favourites
+                    data={newData}
+                    navigation={this.props.navigation}
+                    value={value}
+                  />
+                );
+              }}
+            </FavesContext.Consumer>
+          );
         }}
       </Query>
     );

@@ -12,21 +12,20 @@ import Icon from "react-native-vector-icons/Ionicons";
 export default class Schedule extends Component {
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.value);
+    console.log(this.props.data);
     return (
       <View>
         <SectionList
           renderItem={({ item, index, section }) => (
             <View>
               <TouchableHighlight
-                onPress={() =>
-                  navigate("Session", {
-                    description: item.description,
-                    title: item.title,
-                    speaker: item.speaker.name,
-                    scheduleID: item.id
-                  })
-                }
+                onPress={() => {
+                  if (item.description) {
+                    navigate("Session", {
+                      sessionID: item.id
+                    });
+                  }
+                }}
               >
                 <View>
                   {/* <Text>{item.speaker.id}</Text> */}
@@ -47,15 +46,17 @@ export default class Schedule extends Component {
                   >
                     {item.location}
                   </Text>
-                  <Icon
-                    style={{ marginRight: 10 }}
-                    name={Platform.select({
-                      ios: "ios-heart",
-                      android: "md-heart"
-                    })}
-                    size={12}
-                    color={"red"}
-                  />
+                  {this.props.value.faveIDs.includes(item.id) ? (
+                    <Icon
+                      style={{ marginRight: 10 }}
+                      name={Platform.select({
+                        ios: "ios-heart",
+                        android: "md-heart"
+                      })}
+                      size={12}
+                      color={"red"}
+                    />
+                  ) : null}
                 </View>
               </TouchableHighlight>
             </View>
