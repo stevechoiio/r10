@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import About from "./Favourites";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import FavesContext from "../../context";
 
 export default class AboutContainer extends Component {
   render() {
@@ -20,8 +21,6 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          console.log(data);
-
           return <About data={data} />;
         }}
       </Query>

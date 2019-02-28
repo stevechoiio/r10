@@ -3,6 +3,7 @@ import Schedule from "./Schedule";
 import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import FavesContext from "../../context";
 
 const formatSessionData = sessions => {
   return sessions
@@ -18,7 +19,6 @@ const formatSessionData = sessions => {
 
 export default class ScheduleContainer extends Component {
   render() {
-    console.log(this.props.navigation);
     return (
       <Query
         query={gql`
@@ -49,7 +49,15 @@ export default class ScheduleContainer extends Component {
           let formattedData = formatSessionData(data.allSessions);
 
           return (
-            <Schedule data={formattedData} navigation={this.props.navigation} />
+            <FavesContext.Consumer>
+              {value => (
+                <Schedule
+                  data={formattedData}
+                  navigation={this.props.navigation}
+                  value={value}
+                />
+              )}
+            </FavesContext.Consumer>
           );
         }}
       </Query>

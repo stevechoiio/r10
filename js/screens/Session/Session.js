@@ -10,13 +10,20 @@ export default class Session extends Component {
         <TouchableHighlight
           onPress={() =>
             this.props.navigation.navigate("Speaker", {
-              speaker: this.props.speaker
+              speaker: this.props.speakers
             })
           }
         >
           <View>
             <Text>Presented by:</Text>
             <Text>{this.props.speaker}</Text>
+            <TouchableHighlight
+              onPress={() => {
+                this.props.value.setFaveId(this.props.scheduleID);
+              }}
+            >
+              <Text>asdfasdf</Text>
+            </TouchableHighlight>
           </View>
         </TouchableHighlight>
       </View>

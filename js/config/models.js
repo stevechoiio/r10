@@ -3,7 +3,7 @@ import { AsyncStorage } from "react-native";
 export const setFave = async faveID => {
   try {
     await AsyncStorage.setItem(
-      faveID.toString(),
+      `${faveID}`,
       JSON.stringify({ id: faveID, favedOn: new Date() })
     );
   } catch (error) {
@@ -20,9 +20,9 @@ export const getFaves = async () => {
   }
 };
 
-export const removeFaves = async faveID => {
+export const removeFave = async faveID => {
   try {
-    await AsyncStorage.removeItem(faveID.toString());
+    await AsyncStorage.removeItem(`${faveID}`);
   } catch (error) {
     console.group(error);
   }

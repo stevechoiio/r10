@@ -3,6 +3,7 @@ import {
   createStackNavigator,
   createBottomTabNavigator
 } from "react-navigation";
+import { Platform } from "react-native";
 import About from "../screens/About";
 import Favourites from "../screens/Favourites";
 import Maps from "../screens/Maps";
@@ -83,7 +84,13 @@ export default createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: "#fff",
       inactiveTintColor: "#999",
-      labelStyle: { fontSize: 10, fontFamily: "Montserrat" },
+      labelStyle: {
+        fontSize: 10,
+        ...Platform.select({
+          ios: { fontFamily: "Montserrat" },
+          android: { fontFamily: "Montserrat-Regular" }
+        })
+      },
       style: { backgroundColor: "black" }
     }
   }
