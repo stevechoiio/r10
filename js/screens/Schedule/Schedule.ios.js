@@ -8,6 +8,7 @@ import {
   Image,
   Platform
 } from "react-native";
+import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 export default class Schedule extends Component {
   render() {
@@ -37,33 +38,41 @@ export default class Schedule extends Component {
                   >
                     {item.title}
                   </Text>
-                  <Text
-                    style={
-                      Platform.OS === "ios"
-                        ? { fontFamily: "Montserrat" }
-                        : { fontFamily: "serif" }
-                    }
+
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      justifyContent: "space-between"
+                    }}
                   >
-                    {item.location}
-                  </Text>
-                  {this.props.value.faveIDs.includes(item.id) ? (
-                    <Icon
-                      style={{ marginRight: 10 }}
-                      name={Platform.select({
-                        ios: "ios-heart",
-                        android: "md-heart"
-                      })}
-                      size={12}
-                      color={"red"}
-                    />
-                  ) : null}
+                    <Text
+                      style={
+                        Platform.OS === "ios"
+                          ? { fontFamily: "Montserrat", color: "#999999" }
+                          : { fontFamily: "serif" }
+                      }
+                    >
+                      {item.location}
+                    </Text>
+                    {this.props.value.faveIDs.includes(item.id) ? (
+                      <Icon
+                        style={{ marginRight: 10 }}
+                        name={Platform.select({
+                          ios: "ios-heart",
+                          android: "md-heart"
+                        })}
+                        size={12}
+                        color={"red"}
+                      />
+                    ) : null}
+                  </View>
                 </View>
               </TouchableHighlight>
             </View>
           )}
           renderSectionHeader={({ section: { title } }) => (
             <Text style={{ fontWeight: "bold", backgroundColor: "lightgrey" }}>
-              {title}
+              {moment(title).format("LT")}
             </Text>
           )}
           ItemSeparatorComponent={() => {

@@ -5,12 +5,11 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 export default class About extends Component {
   render() {
     return (
-      <View style={{ marginTop: 40 }}>
+      <View style={{ margin: 40, backgroundColor: "grey" }}>
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="X"
           color="#841584"
-          accessibilityLabel="Learn more about this purple button"
         />
         <Image
           style={{ width: 50, height: 50 }}

@@ -40,7 +40,7 @@ export default class Session extends Component {
           >
             <View>
               <Image
-                style={{ width: 50, height: 50 }}
+                style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: `${this.props.data.speaker.image}` }}
               />
               <Text>{this.props.data.speaker.name}</Text>
@@ -48,7 +48,7 @@ export default class Session extends Component {
           </TouchableHighlight>
         </View>
         <TouchableHighlight
-          style={{}}
+          style={{ fontSi }}
           onPress={() => {
             if (this.props.value.faveIDs.includes(this.props.data.id)) {
               this.props.value.removeFaveId(this.props.data.id);

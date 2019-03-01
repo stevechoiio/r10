@@ -4,31 +4,53 @@ import {
   View,
   FlatList,
   LayoutAnimation,
-  TouchableOpacity
+  TouchableOpacity,
+  Animated
 } from "react-native";
 
+import Icon from "react-native-vector-icons/Ionicons";
 class Collapsable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      closed: true
+      closed: true,
+      spinValue: new Animated.Value(0)
     };
   }
   onPress = () => {
     LayoutAnimation.easeInEaseOut();
+    this.animateIcon();
     this.setState({ closed: !this.state.closed });
   };
-  // shouldComcoponentUpdate() {
-  //   this.setState({ closed: true });
-  // }
+
+  animateIcon = () => {
+    Animated.timing(this.state.rotateValue, {
+      toValue: "360deg",
+      duration: 1000
+    }).start();
+  };
   render() {
+    const spin = this.state.spinValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: ["0deg", "360deg"]
+    });
+    let animatedStyles = {
+      transform: [{ translate: this.state.spinValue }]
+    };
+
     return (
       <View>
         <TouchableOpacity onPress={this.onPress}>
           <View>
             <Text style={{ fontSize: 20 }}>
-              {!this.state.closed ? "-" : "+"}
-              {this.props.item.title}
+              <Animated.text style={[animatedStyles]}>
+                <Icon
+                  style={{ fontSize: 30 }}
+                  name={!this.state.closed ? "ios-remove" : "ios-add"}
+                />
+              </Animated.text>
+
+              <Text>{this.props.item.title}</Text>
             </Text>
             {!this.state.closed ? (
               <Text>
@@ -52,7 +74,7 @@ export default class About extends Component {
   render() {
     return (
       <View style={{ backgroundColor: "white" }}>
-        <Text>asdf</Text>
+        <Text />
         <FlatList
           style={{ color: "black" }}
           data={this.props.data.allConducts}
