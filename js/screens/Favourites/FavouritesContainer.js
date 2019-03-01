@@ -42,17 +42,17 @@ export default class FavouritesContainer extends Component {
                 color="black"
               />
             );
-          let formattedData = formatSessionData(data.allSessions);
 
           return (
             <FavesContext.Consumer>
               {value => {
-                let newData = formattedData.filter(data => {
-                  return value.faveIDs.includes(data.data[0].id);
+                let filteredData = data.allSessions.filter(data => {
+                  return value.faveIDs.includes(data.id);
                 });
+                let formattedData = formatSessionData(filteredData);
                 return (
                   <Favourites
-                    data={newData}
+                    data={formattedData}
                     navigation={this.props.navigation}
                     value={value}
                   />
