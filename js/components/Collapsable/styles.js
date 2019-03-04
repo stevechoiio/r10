@@ -1,11 +1,8 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
-  logoContainer: {
+  logo: {
     flexDirection: "row",
     justifyContent: "center"
-  },
-  logo: {
-    margin: 10
   },
   title: {
     fontWeight: "bold",

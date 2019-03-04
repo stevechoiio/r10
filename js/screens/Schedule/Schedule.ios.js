@@ -27,28 +27,10 @@ export default class Schedule extends Component {
             />
           )}
           renderSectionHeader={({ section: { title } }) => (
-            <Text
-              style={{
-                fontWeight: "bold",
-                backgroundColor: "#e6e6e6",
-                paddingTop: 5,
-                paddingBottom: 5,
-                paddingLeft: 10
-              }}
-            >
-              {moment(title).format("LT")}
-            </Text>
+            <Text style={styles.header}>{moment(title).format("LT")}</Text>
           )}
           ItemSeparatorComponent={() => {
-            return (
-              <View
-                style={{
-                  borderColor: "#e6e6e6",
-                  borderStyle: "solid",
-                  borderWidth: 0.5
-                }}
-              />
-            );
+            return <View style={styles.emptyLine} />;
           }}
           sections={this.props.data}
           keyExtractor={(item, index) => "" + index}

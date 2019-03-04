@@ -1,53 +1,7 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  FlatList,
-  LayoutAnimation,
-  TouchableOpacity,
-  Animated,
-  Image
-} from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Text, View, FlatList, Image } from "react-native";
 import { styles } from "./styles";
-class Collapsable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      closed: true,
-      spinValue: new Animated.Value(0)
-    };
-  }
-  onPress = () => {
-    LayoutAnimation.easeInEaseOut();
-
-    this.setState({ closed: !this.state.closed });
-  };
-
-  render() {
-    return (
-      <View>
-        <TouchableOpacity onPress={this.onPress}>
-          <View>
-            <Text style={styles.codeOfConduct}>
-              <Icon
-                style={{ fontSize: 30 }}
-                name={!this.state.closed ? "ios-remove" : "ios-add"}
-              />
-
-              <Text>{this.props.item.title}</Text>
-            </Text>
-            {!this.state.closed ? (
-              <Text style={{ lineHeight: 25 }}>
-                {this.props.item.description} {this.props.item.order}
-              </Text>
-            ) : null}
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+import Collapsable from "../../components/Collapsable";
 
 export default class About extends Component {
   constructor(props) {
@@ -59,10 +13,13 @@ export default class About extends Component {
   render() {
     return (
       <View style={{ backgroundColor: "white", margin: 10 }}>
-        <Image
-          style={styles.logo}
-          source={require("../../assets/images/r10_logo.png")}
-        />
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../../assets/images/r10_logo.png")}
+          />
+        </View>
+
         <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
         <Text>
           R10 is a conference that focuses on just about any topic related to

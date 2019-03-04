@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Text, View, SectionList } from "react-native";
 import ScheduleItem from "../../components/ScheduleItem";
 import moment from "moment";
+import { styles } from "./styles";
 export default class Favourites extends Component {
   render() {
     const { navigate } = this.props.navigation;
@@ -9,7 +10,7 @@ export default class Favourites extends Component {
     return (
       <View>
         <SectionList
-          renderItem={({ item, index, section }) => (
+          renderItem={({ item }) => (
             <ScheduleItem
               fav={this.props.value}
               item={item}
@@ -17,23 +18,13 @@ export default class Favourites extends Component {
             />
           )}
           renderSectionHeader={({ section: { title } }) => (
-            <Text
-              style={{
-                fontWeight: "bold",
-                backgroundColor: "#e6e6e6",
-                paddingTop: 5,
-                paddingBottom: 5,
-                paddingLeft: 10
-              }}
-            >
-              {moment(title).format("LT")}
-            </Text>
+            <Text style={styles.header}>{moment(title).format("LT")}</Text>
           )}
           ItemSeparatorComponent={() => {
-            return <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />;
+            return <View style={styles.emptyLine} />;
           }}
           sections={this.props.data}
-          keyExtractor={(item, index) => "" + index}
+          keyExtractor={(_, index) => "" + index}
         />
       </View>
     );
