@@ -28,7 +28,6 @@ export default class AboutContainer extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) return <ActivityIndicator size="large" color="black" />;
-          console.log(data);
 
           return <About data={data} />;
         }}

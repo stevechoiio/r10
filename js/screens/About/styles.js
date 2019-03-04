@@ -10,7 +10,9 @@ export const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 24,
-    fontFamily: "Montserrat"
+    fontFamily: "Montserrat",
+    marginTop: 10,
+    marginBottom: 10
   },
   codeOfConduct: {
     color: "#9963ea",

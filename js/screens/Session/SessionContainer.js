@@ -17,7 +17,7 @@ export default class SessionContainer extends Component {
     const { navigation } = this.props;
 
     const sessionID = navigation.getParam("sessionID");
-    console.log(sessionID);
+
     return (
       <Query
         query={gql`
@@ -39,7 +39,6 @@ export default class SessionContainer extends Component {
         variables={{ sessionID }}
       >
         {({ loading, error, data }) => {
-          console.log(data);
           if (loading)
             return (
               <ActivityIndicator
@@ -52,7 +51,6 @@ export default class SessionContainer extends Component {
           return (
             <FavesContext.Consumer>
               {value => {
-                console.log(value);
                 return (
                   <Session
                     navigation={navigation}

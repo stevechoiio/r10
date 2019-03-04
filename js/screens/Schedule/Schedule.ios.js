@@ -1,21 +1,13 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  FlatList,
-  SectionList,
-  TouchableHighlight,
-  Image,
-  Platform
-} from "react-native";
+import { Text, View, SectionList } from "react-native";
 import moment from "moment";
 import ScheduleItem from "../../components/ScheduleItem";
 import { styles } from "./styles";
-import Icon from "react-native-vector-icons/Ionicons";
+
 export default class Schedule extends Component {
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.data);
+
     return (
       <View>
         <SectionList

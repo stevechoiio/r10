@@ -3,7 +3,6 @@ import { Text, View, TouchableHighlight, Platform } from "react-native";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 export const ScheduleItem = ({ item, fav, navigate }) => {
-  console.log(item);
   return (
     <View>
       <TouchableHighlight
@@ -32,8 +31,8 @@ export const ScheduleItem = ({ item, fav, navigate }) => {
                   ios: "ios-heart",
                   android: "md-heart"
                 })}
-                size={12}
-                color={"red"}
+                size={20}
+                color={"#cf392a"}
               />
             ) : null}
           </View>

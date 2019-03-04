@@ -7,7 +7,6 @@ import { ActivityIndicator } from "react-native";
 export default class SpeakerContainer extends Component {
   render() {
     const speakerID = this.props.navigation.getParam("speakerID");
-    console.log(speakerID);
     return (
       <Query
         query={gql`
@@ -23,7 +22,6 @@ export default class SpeakerContainer extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) return <ActivityIndicator size="large" color="black" />;
-          console.log(data);
           return (
             <Speaker
               data={data.allSpeakers[0]}

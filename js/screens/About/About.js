@@ -20,7 +20,9 @@ export default class About extends Component {
           />
         </View>
 
-        <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
+        <View
+          style={{ borderStyle: "solid", borderWidth: 0.5, marginBottom: 10 }}
+        />
         <Text>
           R10 is a conference that focuses on just about any topic related to
           dev
@@ -39,10 +41,11 @@ export default class About extends Component {
             </View>
           )}
           keyExtractor={(item, index) => item.id}
-          ItemSeparatorComponent={() => {
-            return <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />;
-          }}
         />
+        <View
+          style={{ borderStyle: "solid", borderWidth: 0.5, marginBottom: 20 }}
+        />
+        <Text>copyright Red Academy 2019</Text>
       </View>
     );
   }

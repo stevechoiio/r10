@@ -12,7 +12,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 export default class Schedule extends Component {
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.value);
+
     return (
       <View>
         <SectionList

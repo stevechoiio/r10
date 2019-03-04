@@ -6,7 +6,7 @@ import { styles } from "./styles";
 export default class Favourites extends Component {
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.data);
+
     return (
       <View>
         <SectionList

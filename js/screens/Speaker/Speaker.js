@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Text, View, FlatList, Button, Image } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { Text, View, Button, Image } from "react-native";
 
-export default class About extends Component {
+export default class Speaker extends Component {
   render() {
     return (
       <View style={{ backgroundColor: "black", height: "100%", padding: 30 }}>

@@ -2,21 +2,17 @@ import React, { Component } from "react";
 import {
   Text,
   View,
-  FlatList,
   TouchableOpacity,
   Image,
   Platform,
-  Header,
   StyleSheet
 } from "react-native";
 import moment from "moment";
-import { createStackNavigator, createAppContainer } from "react-navigation";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
 export default class Session extends Component {
   render() {
-    console.log(this.props.value);
     return (
       <View style={styles.container}>
         <View
@@ -33,8 +29,8 @@ export default class Session extends Component {
                 ios: "ios-heart",
                 android: "md-heart"
               })}
-              size={12}
-              color={"red"}
+              size={20}
+              color={"#cf392a"}
             />
           ) : null}
         </View>
@@ -79,7 +75,7 @@ export default class Session extends Component {
         >
           <View>
             <LinearGradient
-              colors={["#cf392a", "#9963ea"]}
+              colors={["#47227f", "#9963ea"]}
               start={{ x: 0.0, y: 1.0 }}
               end={{ x: 1.0, y: 0.0 }}
               style={[
