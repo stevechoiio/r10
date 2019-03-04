@@ -1,6 +1,5 @@
 import React from "react";
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
-import { Button } from "react-native";
 import About from "../screens/About";
 import Favourites from "../screens/Favourites";
 import Maps from "../screens/Maps";
