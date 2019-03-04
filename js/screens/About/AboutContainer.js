@@ -5,6 +5,13 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
 export default class AboutContainer extends Component {
+  static navigationOptions = {
+    title: "About",
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontSize: 22
+    }
+  };
   render() {
     return (
       <Query

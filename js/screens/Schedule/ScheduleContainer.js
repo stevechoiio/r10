@@ -18,6 +18,13 @@ const formatSessionData = sessions => {
 };
 
 export default class ScheduleContainer extends Component {
+  static navigationOptions = {
+    title: "Schedule",
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontSize: 22
+    }
+  };
   render() {
     return (
       <Query

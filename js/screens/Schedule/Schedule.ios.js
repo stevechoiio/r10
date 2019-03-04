@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import moment from "moment";
+import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 export default class Schedule extends Component {
   render() {
@@ -30,14 +31,7 @@ export default class Schedule extends Component {
               >
                 <View>
                   {/* <Text>{item.speaker.id}</Text> */}
-                  <Text
-                    style={Platform.select({
-                      ios: { fontFamily: "Montserrat" },
-                      android: { fontFamily: "Montserrat-Regular" }
-                    })}
-                  >
-                    {item.title}
-                  </Text>
+                  <Text style={styles.title}>{item.title}</Text>
 
                   <View
                     style={{
@@ -45,15 +39,7 @@ export default class Schedule extends Component {
                       justifyContent: "space-between"
                     }}
                   >
-                    <Text
-                      style={
-                        Platform.OS === "ios"
-                          ? { fontFamily: "Montserrat", color: "#999999" }
-                          : { fontFamily: "serif" }
-                      }
-                    >
-                      {item.location}
-                    </Text>
+                    <Text style={styles.location}>{item.location}</Text>
                     {this.props.value.faveIDs.includes(item.id) ? (
                       <Icon
                         style={{ marginRight: 10 }}
@@ -71,12 +57,28 @@ export default class Schedule extends Component {
             </View>
           )}
           renderSectionHeader={({ section: { title } }) => (
-            <Text style={{ fontWeight: "bold", backgroundColor: "lightgrey" }}>
+            <Text
+              style={{
+                fontWeight: "bold",
+                backgroundColor: "#e6e6e6",
+                paddingTop: 5,
+                paddingBottom: 5,
+                paddingLeft: 10
+              }}
+            >
               {moment(title).format("LT")}
             </Text>
           )}
           ItemSeparatorComponent={() => {
-            return <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />;
+            return (
+              <View
+                style={{
+                  borderColor: "#e6e6e6",
+                  borderStyle: "solid",
+                  borderWidth: 0.5
+                }}
+              />
+            );
           }}
           sections={this.props.data}
           keyExtractor={(item, index) => "" + index}

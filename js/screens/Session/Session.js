@@ -3,24 +3,30 @@ import {
   Text,
   View,
   FlatList,
-  TouchableHighlight,
+  TouchableOpacity,
   Image,
-  Platform
+  Platform,
+  Header
 } from "react-native";
+import moment from "moment";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-
+import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 export default class Session extends Component {
   render() {
     console.log(this.props.value);
     return (
-      <View>
-        <Text>{this.props.description}</Text>
-
-        <View>
+      <View style={styles.container}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between"
+          }}
+        >
+          <Text style={styles.location}>{this.props.data.location}</Text>
           {this.props.value.faveIDs.includes(this.props.data.id) ? (
             <Icon
-              style={{ marginRight: 10 }}
+              style={{ marginRight: 10, width: 20 }}
               name={Platform.select({
                 ios: "ios-heart",
                 android: "md-heart"
@@ -29,26 +35,37 @@ export default class Session extends Component {
               color={"red"}
             />
           ) : null}
-          <Text>{this.props.data.description}</Text>
-          <Text>Presented by:</Text>
-          <TouchableHighlight
+        </View>
+        <Text style={styles.title}>{this.props.data.title}</Text>
+        <Text style={styles.time}>
+          {moment(this.props.data.startTime).format("LT")}
+        </Text>
+        <View>
+          <Text style={styles.content}>{this.props.data.description}</Text>
+          <Text style={styles.location}>Presented by:</Text>
+          <TouchableOpacity
             onPress={() =>
               this.props.navigation.navigate("Speaker", {
                 speakerID: this.props.data.speaker.id
               })
             }
           >
-            <View>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: `${this.props.data.speaker.image}` }}
               />
-              <Text>{this.props.data.speaker.name}</Text>
+              <Text style={{ marginLeft: 10 }}>
+                {this.props.data.speaker.name}
+              </Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
-        <TouchableHighlight
-          style={{ fontSi }}
+        <View
+          style={{ marginTop: 10, borderStyle: "solid", borderWidth: 0.5 }}
+        />
+        <TouchableOpacity
+          style={styles.favouriteButton}
           onPress={() => {
             if (this.props.value.faveIDs.includes(this.props.data.id)) {
               this.props.value.removeFaveId(this.props.data.id);
@@ -63,7 +80,7 @@ export default class Session extends Component {
           ) : (
             <Text>favourite</Text>
           )}
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -5,10 +5,11 @@ import {
   FlatList,
   LayoutAnimation,
   TouchableOpacity,
-  Animated
+  Animated,
+  Image
 } from "react-native";
-
 import Icon from "react-native-vector-icons/Ionicons";
+import { styles } from "./styles";
 class Collapsable extends Component {
   constructor(props) {
     super(props);
@@ -19,41 +20,25 @@ class Collapsable extends Component {
   }
   onPress = () => {
     LayoutAnimation.easeInEaseOut();
-    this.animateIcon();
+
     this.setState({ closed: !this.state.closed });
   };
 
-  animateIcon = () => {
-    Animated.timing(this.state.rotateValue, {
-      toValue: "360deg",
-      duration: 1000
-    }).start();
-  };
   render() {
-    const spin = this.state.spinValue.interpolate({
-      inputRange: [0, 1],
-      outputRange: ["0deg", "360deg"]
-    });
-    let animatedStyles = {
-      transform: [{ translate: this.state.spinValue }]
-    };
-
     return (
       <View>
         <TouchableOpacity onPress={this.onPress}>
           <View>
-            <Text style={{ fontSize: 20 }}>
-              <Animated.text style={[animatedStyles]}>
-                <Icon
-                  style={{ fontSize: 30 }}
-                  name={!this.state.closed ? "ios-remove" : "ios-add"}
-                />
-              </Animated.text>
+            <Text style={styles.codeOfConduct}>
+              <Icon
+                style={{ fontSize: 30 }}
+                name={!this.state.closed ? "ios-remove" : "ios-add"}
+              />
 
               <Text>{this.props.item.title}</Text>
             </Text>
             {!this.state.closed ? (
-              <Text>
+              <Text style={{ lineHeight: 25 }}>
                 {this.props.item.description} {this.props.item.order}
               </Text>
             ) : null}
@@ -73,10 +58,23 @@ export default class About extends Component {
   }
   render() {
     return (
-      <View style={{ backgroundColor: "white" }}>
-        <Text />
+      <View style={{ backgroundColor: "white", margin: 10 }}>
+        <Image
+          style={styles.logo}
+          source={require("../../assets/images/r10_logo.png")}
+        />
+        <View style={{ borderStyle: "solid", borderWidth: 0.5 }} />
+        <Text>
+          R10 is a conference that focuses on just about any topic related to
+          dev
+        </Text>
+        <Text style={styles.title}>Date & Venue</Text>
+        <Text>
+          The R10 conference will take place on Tuesday, June 27,2019 in
+          Vancouver,B.C.
+        </Text>
+        <Text style={styles.title}>Code of Conduct</Text>
         <FlatList
-          style={{ color: "black" }}
           data={this.props.data.allConducts}
           renderItem={({ item }) => (
             <View>

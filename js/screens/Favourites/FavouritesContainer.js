@@ -17,6 +17,13 @@ const formatSessionData = sessions => {
 };
 
 export default class FavouritesContainer extends Component {
+  static navigationOptions = {
+    title: "Faves",
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontSize: 22
+    }
+  };
   render() {
     return (
       <Query

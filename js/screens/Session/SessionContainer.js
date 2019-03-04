@@ -6,6 +6,13 @@ import { Query } from "react-apollo";
 import FavesContext from "../../context";
 
 export default class SessionContainer extends Component {
+  static navigationOptions = {
+    title: "Session",
+    headerTintColor: "white",
+    headerTitleStyle: {
+      fontSize: 22
+    }
+  };
   render() {
     const { navigation } = this.props;
 
@@ -24,6 +31,8 @@ export default class SessionContainer extends Component {
                 name
                 image
               }
+              startTime
+              location
             }
           }
         `}

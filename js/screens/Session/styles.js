@@ -1,12 +1,30 @@
+import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
-    borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: "#d6d7da"
+    margin: 20
+  },
+  location: {
+    fontSize: 17,
+    color: "#999999",
+    justifyContent: "space-between",
+    marginBottom: 10
   },
   title: {
-    fontSize: 19,
+    fontSize: 25,
     fontWeight: "bold"
+  },
+  time: { color: "#cf392a" },
+  content: {
+    lineHeight: 35
+  },
+  favouriteButton: {
+    fontSize: 50,
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  speakerImage: {
+    borderRadius: 25
   },
   activeTitle: {
     color: "red"
