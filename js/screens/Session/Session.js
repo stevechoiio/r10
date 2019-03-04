@@ -6,12 +6,14 @@ import {
   TouchableOpacity,
   Image,
   Platform,
-  Header
+  Header,
+  StyleSheet
 } from "react-native";
 import moment from "moment";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
+import LinearGradient from "react-native-linear-gradient";
 export default class Session extends Component {
   render() {
     console.log(this.props.value);
@@ -75,11 +77,22 @@ export default class Session extends Component {
             }
           }}
         >
-          {this.props.value.faveIDs.includes(this.props.data.id) ? (
-            <Text>UnFavourite</Text>
-          ) : (
-            <Text>favourite</Text>
-          )}
+          <View>
+            <LinearGradient
+              colors={["#cf392a", "#9963ea"]}
+              start={{ x: 0.0, y: 1.0 }}
+              end={{ x: 1.0, y: 0.0 }}
+              style={[
+                StyleSheet.absoluteFill,
+                { height: "100%", width: "100%", borderRadius: 30 }
+              ]}
+            />
+            {this.props.value.faveIDs.includes(this.props.data.id) ? (
+              <Text style={{ color: "white", padding: 20 }}>UnFavourite</Text>
+            ) : (
+              <Text style={{ color: "white", padding: 20 }}>favourite</Text>
+            )}
+          </View>
         </TouchableOpacity>
       </View>
     );
