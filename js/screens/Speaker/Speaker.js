@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, Button, Image } from "react-native";
-
+import {
+  Text,
+  View,
+  Button,
+  Image,
+  Linking,
+  TouchableOpacity,
+  StyleSheet
+} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 export default class Speaker extends Component {
   render() {
     return (
@@ -42,6 +50,24 @@ export default class Speaker extends Component {
           <Text style={{ fontSize: 17, lineHeight: 24 }}>
             {this.props.data.bio}
           </Text>
+          <TouchableOpacity
+            onPress={() => Linking.openURL(this.props.data.url)}
+          >
+            <View>
+              <LinearGradient
+                colors={["#47227f", "#9963ea"]}
+                start={{ x: 0.0, y: 1.0 }}
+                end={{ x: 1.0, y: 0.0 }}
+                style={[
+                  StyleSheet.absoluteFill,
+                  { height: "100%", width: "100%", borderRadius: 30 }
+                ]}
+              />
+              <Text style={{ color: "white", padding: 20 }}>
+                Find more about the speaker in Wikipedia
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );

@@ -22,6 +22,12 @@ export const sharedNavigationOptions = navigation => ({
     backgroundColor: "transparent"
   },
   headerLeft: props => (
-    <Icon name="ios-heart" onPress={() => navigation.toggleDrawer()} />
+    <Icon
+      size={25}
+      style={{ paddingLeft: 10 }}
+      name="md-menu"
+      color="#fff"
+      onPress={() => navigation.toggleDrawer()}
+    />
   )
 });

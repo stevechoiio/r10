@@ -15,6 +15,7 @@ export default class SpeakerContainer extends Component {
               name
               bio
               image
+              url
             }
           }
         `}
