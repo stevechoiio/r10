@@ -14,13 +14,19 @@ export const About = props => {
       </View>
 
       <View
-        style={{ borderStyle: "solid", borderWidth: 0.5, marginBottom: 10 }}
+        style={{
+          borderColor: "#e6e6e6",
+          borderStyle: "solid",
+          borderWidth: 0.5,
+          marginBottom: 10,
+          marginTop: 10
+        }}
       />
-      <Text>
+      <Text style={{ ...styles.title, fontSize: 15 }}>
         R10 is a conference that focuses on just about any topic related to dev
       </Text>
       <Text style={styles.title}>Date & Venue</Text>
-      <Text>
+      <Text style={{ ...styles.title, fontSize: 15 }}>
         The R10 conference will take place on Tuesday, June 27,2019 in
         Vancouver,B.C.
       </Text>

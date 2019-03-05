@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
+import { ScrollView } from "react-native-gesture-handler";
 class Collapsable extends Component {
   constructor(props) {
     super(props);
@@ -51,19 +52,21 @@ class Collapsable extends Component {
               }}
             >
               <Icon
-                style={{ fontSize: 30, color: "#9963ea" }}
+                style={{ fontSize: 15, color: "#9963ea" }}
                 name={!this.state.closed ? "ios-remove" : "ios-add"}
               />
             </Animated.View>
-            <Text style={styles.codeOfConduct}>
+            <Text style={{ ...styles.codeOfConduct, fontSize: 15, margin: 5 }}>
               <Text>{this.props.item.title}</Text>
             </Text>
           </View>
 
           {!this.state.closed ? (
-            <Text style={{ lineHeight: 25 }}>
-              {this.props.item.description} {this.props.item.order}
-            </Text>
+            <ScrollView>
+              <Text style={{ lineHeight: 25 }}>
+                {this.props.item.description} {this.props.item.order}
+              </Text>
+            </ScrollView>
           ) : null}
         </TouchableOpacity>
       </View>

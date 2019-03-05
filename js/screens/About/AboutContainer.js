@@ -27,7 +27,18 @@ export default class AboutContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading) return <ActivityIndicator size="large" color="black" />;
+          if (loading)
+            return (
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%"
+                }}
+              >
+                <ActivityIndicator size="large" color="black" />
+              </View>
+            );
 
           return <About data={data} />;
         }}

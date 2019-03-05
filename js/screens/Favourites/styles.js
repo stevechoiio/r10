@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
     fontFamily: "Montserrat"
   },
   textContainer: {
+    height: "100%",
     justifyContent: "center",
     alignItems: "center"
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Speaker } from "./Speaker";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 
 export default class SpeakerContainer extends Component {
   render() {
@@ -22,7 +22,18 @@ export default class SpeakerContainer extends Component {
         variables={{ speakerID }}
       >
         {({ loading, error, data }) => {
-          if (loading) return <ActivityIndicator size="large" color="black" />;
+          if (loading)
+            return (
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%"
+                }}
+              >
+                <ActivityIndicator size="large" color="black" />
+              </View>
+            );
           return (
             <Speaker
               data={data.allSpeakers[0]}

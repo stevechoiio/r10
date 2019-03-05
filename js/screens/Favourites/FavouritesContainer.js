@@ -43,11 +43,15 @@ export default class FavouritesContainer extends Component {
         {({ loading, error, data }) => {
           if (loading)
             return (
-              <ActivityIndicator
-                style={{ alignItems: "center" }}
-                size="large"
-                color="black"
-              />
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%"
+                }}
+              >
+                <ActivityIndicator size="large" color="black" />
+              </View>
             );
 
           return (

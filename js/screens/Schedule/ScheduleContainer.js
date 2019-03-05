@@ -32,8 +32,14 @@ export default class ScheduleContainer extends Component {
         {({ loading, error, data }) => {
           if (loading)
             return (
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <ActivityIndicator size="small" color="black" />
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%"
+                }}
+              >
+                <ActivityIndicator size="large" color="black" />
               </View>
             );
           let formattedData = formatSessionData(data.allSessions);

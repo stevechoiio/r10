@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { Session } from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
@@ -41,11 +41,15 @@ export default class SessionContainer extends Component {
         {({ loading, error, data }) => {
           if (loading)
             return (
-              <ActivityIndicator
-                style={{ alignItems: "center" }}
-                size="large"
-                color="black"
-              />
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%"
+                }}
+              >
+                <ActivityIndicator size="large" color="black" />
+              </View>
             );
 
           return (

@@ -6,7 +6,6 @@ import { styles } from "./styles";
 export default class Favourites extends Component {
   render() {
     const { navigate } = this.props.navigation;
-    console.log(this.props.data);
     return (
       <View>
         {this.props.data.length > 0 ? (
@@ -30,7 +29,7 @@ export default class Favourites extends Component {
         ) : (
           <View style={styles.textContainer}>
             <Text style={styles.text}>
-              You have not Favourited any events yet.
+              You have not favourited any events yet.
             </Text>
           </View>
         )}
