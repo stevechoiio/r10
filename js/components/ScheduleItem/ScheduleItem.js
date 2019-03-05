@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, TouchableHighlight, Platform } from "react-native";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
+import PropTypes from "prop-types";
 export const ScheduleItem = ({ item, fav, navigate }) => {
   return (
     <View>
@@ -44,4 +45,10 @@ export const ScheduleItem = ({ item, fav, navigate }) => {
       </TouchableHighlight>
     </View>
   );
+};
+
+ScheduleItem.propTypes = {
+  item: PropTypes.object,
+  fav: PropTypes.object,
+  navigate: PropTypes.func
 };

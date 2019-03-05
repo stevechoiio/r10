@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { styles } from "./styles";
+import PropTypes from "prop-types";
 export const GradientButton = props => {
   return (
     <TouchableOpacity onPress={props.link} style={{ marginTop: 25 }}>

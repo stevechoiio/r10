@@ -3,7 +3,7 @@ import { Speaker } from "./Speaker";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import { ActivityIndicator, View } from "react-native";
-
+import PropTypes from "prop-types";
 export default class SpeakerContainer extends Component {
   render() {
     const speakerID = this.props.navigation.getParam("speakerID");
@@ -45,3 +45,7 @@ export default class SpeakerContainer extends Component {
     );
   }
 }
+
+SpeakerContainer.propTypes = {
+  navigation: PropTypes.object
+};

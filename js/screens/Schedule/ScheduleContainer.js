@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavesContext from "../../context";
 import { formatSessionData } from "../../lib/helpers";
-
+import PropTypes from "prop-types";
 export default class ScheduleContainer extends Component {
   static navigationOptions = {
     title: "Schedule",
@@ -60,3 +60,7 @@ export default class ScheduleContainer extends Component {
     );
   }
 }
+
+ScheduleContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};

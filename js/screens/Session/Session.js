@@ -4,6 +4,8 @@ import moment from "moment";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import GradientButton from "../../components/GradientButton";
+import PropTypes from "prop-types";
+
 export const Session = props => {
   return (
     <View style={styles.container}>
@@ -77,4 +79,10 @@ export const Session = props => {
       </GradientButton>
     </View>
   );
+};
+
+Session.propTypes = {
+  navigation: PropTypes.object,
+  data: PropTypes.object,
+  value: PropTypes.object
 };

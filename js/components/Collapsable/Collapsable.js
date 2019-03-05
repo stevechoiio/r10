@@ -4,11 +4,12 @@ import {
   View,
   LayoutAnimation,
   TouchableOpacity,
-  Animated
+  Animated,
+  ScrollView
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
-import { ScrollView } from "react-native-gesture-handler";
+import PropTypes from "prop-types";
 class Collapsable extends Component {
   constructor(props) {
     super(props);
@@ -62,11 +63,9 @@ class Collapsable extends Component {
           </View>
 
           {!this.state.closed ? (
-            <ScrollView>
-              <Text style={{ lineHeight: 25 }}>
-                {this.props.item.description} {this.props.item.order}
-              </Text>
-            </ScrollView>
+            <Text style={{ lineHeight: 25 }}>
+              {this.props.item.description}
+            </Text>
           ) : null}
         </TouchableOpacity>
       </View>

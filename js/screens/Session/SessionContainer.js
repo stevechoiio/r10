@@ -4,7 +4,7 @@ import { Session } from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavesContext from "../../context";
-
+import PropTypes from "prop-types";
 export default class SessionContainer extends Component {
   static navigationOptions = {
     title: "Session",
@@ -70,3 +70,7 @@ export default class SessionContainer extends Component {
     );
   }
 }
+
+SessionContainer = {
+  navigation: PropTypes.object
+};

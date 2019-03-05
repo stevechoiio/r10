@@ -4,17 +4,8 @@ import { ActivityIndicator, Text, View } from "react-native";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavesContext from "../../context";
-const formatSessionData = sessions => {
-  return sessions
-    .reduce((acc, curr) => {
-      const timeExists = acc.find(section => section.title === curr.startTime);
-      timeExists
-        ? timeExists.data.push(curr)
-        : acc.push({ title: curr.startTime, data: [curr] });
-      return acc;
-    }, [])
-    .sort((a, b) => a.title - b.title);
-};
+import PropTypes from "prop-types";
+import { formatSessionData } from "../../lib/helpers";
 
 export default class FavouritesContainer extends Component {
   static navigationOptions = {
@@ -76,3 +67,7 @@ export default class FavouritesContainer extends Component {
     );
   }
 }
+
+FavouritesContainer.propTypes = {
+  navigation: PropTypes.object
+};

@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, Button, Image, Linking } from "react-native";
 import { styles } from "./styles";
 import GradientButton from "../../components/GradientButton";
+import PropTypes from "prop-types";
 export const Speaker = props => {
   return (
     <View style={{ backgroundColor: "black", height: "100%", padding: 30 }}>
@@ -27,7 +28,8 @@ export const Speaker = props => {
           backgroundColor: "white",
           borderRadius: 5,
           padding: 10,
-          alignItems: "center"
+          alignItems: "center",
+          height: "100%"
         }}
       >
         <Image
@@ -42,4 +44,8 @@ export const Speaker = props => {
       </View>
     </View>
   );
+};
+Speaker.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  data: PropTypes.object
 };

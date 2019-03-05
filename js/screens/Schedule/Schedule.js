@@ -3,7 +3,7 @@ import { Text, View, SectionList } from "react-native";
 import moment from "moment";
 import ScheduleItem from "../../components/ScheduleItem";
 import { styles } from "./styles";
-
+import PropTypes from "prop-types";
 export const Schedule = props => {
   const { navigate } = props.navigation;
 
@@ -24,4 +24,9 @@ export const Schedule = props => {
       />
     </View>
   );
+};
+
+Schedule.propTypes = {
+  navigation: PropTypes.object,
+  value: PropTypes.object
 };

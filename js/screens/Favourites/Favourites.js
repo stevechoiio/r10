@@ -3,6 +3,7 @@ import { Text, View, SectionList } from "react-native";
 import ScheduleItem from "../../components/ScheduleItem";
 import moment from "moment";
 import { styles } from "./styles";
+import PropTypes from "prop-types";
 export default class Favourites extends Component {
   render() {
     const { navigate } = this.props.navigation;
@@ -37,3 +38,9 @@ export default class Favourites extends Component {
     );
   }
 }
+
+Favourites.propTypes = {
+  navigation: PropTypes.object,
+  data: PropTypes.array,
+  value: PropTypes.object
+};
