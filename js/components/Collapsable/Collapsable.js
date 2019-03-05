@@ -21,26 +21,50 @@ class Collapsable extends Component {
     LayoutAnimation.easeInEaseOut();
 
     this.setState({ closed: !this.state.closed });
+    this.animateSpin();
+  };
+
+  animateSpin = () => {
+    this.state.spinValue.setValue(0);
+    Animated.timing(this.state.spinValue, {
+      duration: 400,
+      toValue: 360
+    }).start();
   };
 
   render() {
+    const { item } = this.props;
+    const rotateIcon = this.state.spinValue.interpolate({
+      inputRange: ["0", "360"],
+      outputRange: ["0deg", "360deg"]
+    });
     return (
       <View>
-        <TouchableOpacity onPress={this.onPress}>
-          <View>
-            <Text style={styles.codeOfConduct}>
+        <TouchableOpacity
+          onPress={this.onPress}
+          style={{ justifyContent: "center" }}
+        >
+          <View style={styles.titleContainer}>
+            <Animated.View
+              style={{
+                transform: [{ rotate: rotateIcon }]
+              }}
+            >
               <Icon
-                style={{ fontSize: 30 }}
+                style={{ fontSize: 30, color: "#9963ea" }}
                 name={!this.state.closed ? "ios-remove" : "ios-add"}
               />
+            </Animated.View>
+            <Text style={styles.codeOfConduct}>
               <Text>{this.props.item.title}</Text>
             </Text>
-            {!this.state.closed ? (
-              <Text style={{ lineHeight: 25 }}>
-                {this.props.item.description} {this.props.item.order}
-              </Text>
-            ) : null}
           </View>
+
+          {!this.state.closed ? (
+            <Text style={{ lineHeight: 25 }}>
+              {this.props.item.description} {this.props.item.order}
+            </Text>
+          ) : null}
         </TouchableOpacity>
       </View>
     );

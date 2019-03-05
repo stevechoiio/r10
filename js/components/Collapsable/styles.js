@@ -9,7 +9,13 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "Montserrat"
   },
+  titleContainer: {
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    alignItems: "center"
+  },
   codeOfConduct: {
+    paddingLeft: 5,
     color: "#9963ea",
     fontFamily: "Montserrat"
   }
