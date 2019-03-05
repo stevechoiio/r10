@@ -1,6 +1,6 @@
 # R10 - A Mobile Application for R10 Conference
 
-R10 is a hybrid mobile application built with React Native
+R10 is a hybrid mobile application that displays information about the event,schedule, and each speakers. This app is built with React Native
 
 ## Authors
 
@@ -8,17 +8,12 @@ R10 is a hybrid mobile application built with React Native
 
 ## Screenshots
 
-### Welcome Screen
-
-<img src="./screenshots/welcome-screen.png" width="1200" height="600">
-
-### Featured Page
-
-<img src="./screenshots/featured-page.png" width="1200" height="600">
+- Will be uploaded soon
 
 ## Technologies Used
 
 `Development`:
+
 -React Native
 
 
