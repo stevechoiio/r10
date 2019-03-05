@@ -10,13 +10,13 @@ R10 is a hybrid mobile application that displays information about the event,sch
 
 ### About Tab
 
-<img src="./images/About.png" width="1200" height="600">
+<img src="./images/About.png"  height="600">
 ### Schedule Tab
-<img src="./images/Schedule.png" width="1200" height="600">
+<img src="./images/Schedule.png" height="600">
 ### Session Tab
-<img src="./images/Session.png" width="1200" height="600">
+<img src="./images/Session.png" height="600">
 ### Speaker Stack
-<img src="./images/Speaker.png" width="1200" height="600">
+<img src="./images/Speaker.png"  height="600">
 
 ## Technologies Used
 
