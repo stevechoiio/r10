@@ -84,9 +84,13 @@ export default class Session extends Component {
               ]}
             />
             {this.props.value.faveIDs.includes(this.props.data.id) ? (
-              <Text style={{ color: "white", padding: 20 }}>UnFavourite</Text>
+              <Text style={{ color: "white", padding: 20 }}>
+                Remove from Favourite
+              </Text>
             ) : (
-              <Text style={{ color: "white", padding: 20 }}>favourite</Text>
+              <Text style={{ color: "white", padding: 20 }}>
+                Add to Favourite
+              </Text>
             )}
           </View>
         </TouchableOpacity>

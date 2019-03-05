@@ -64,7 +64,7 @@ export default class Speaker extends Component {
                 ]}
               />
               <Text style={{ color: "white", padding: 20 }}>
-                Find more about the speaker in Wikipedia
+                Learn more about the Speaker
               </Text>
             </View>
           </TouchableOpacity>

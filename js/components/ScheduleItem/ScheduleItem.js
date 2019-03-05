@@ -13,6 +13,8 @@ export const ScheduleItem = ({ item, fav, navigate }) => {
             });
           }
         }}
+        activeOpacity={0.5}
+        underlayColor={"#e6e6e6"}
       >
         <View>
           <Text style={styles.title}>{item.title}</Text>
