@@ -9,6 +9,7 @@ import {
   StyleSheet
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { styles } from "./styles";
 export default class Speaker extends Component {
   render() {
     return (
@@ -41,17 +42,14 @@ export default class Speaker extends Component {
           }}
         >
           <Image
-            style={{ width: 120, height: 120, borderRadius: 60 }}
+            style={styles.bioImage}
             source={{ uri: `${this.props.data.image}` }}
           />
-          <Text style={{ fontSize: 30, paddingTop: 15, paddingBottom: 15 }}>
-            {this.props.data.name}
-          </Text>
-          <Text style={{ fontSize: 17, lineHeight: 24 }}>
-            {this.props.data.bio}
-          </Text>
+          <Text style={styles.speakerName}>{this.props.data.name}</Text>
+          <Text style={styles.speakerBio}>{this.props.data.bio}</Text>
           <TouchableOpacity
             onPress={() => Linking.openURL(this.props.data.url)}
+            style={{ marginTop: 25 }}
           >
             <View>
               <LinearGradient
@@ -63,7 +61,7 @@ export default class Speaker extends Component {
                   { height: "100%", width: "100%", borderRadius: 30 }
                 ]}
               />
-              <Text style={{ color: "white", padding: 20 }}>
+              <Text style={styles.wikiButton}>
                 Learn more about the Speaker
               </Text>
             </View>
