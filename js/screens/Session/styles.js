@@ -18,9 +18,10 @@ export const styles = StyleSheet.create({
     lineHeight: 35
   },
   favouriteButton: {
-    fontSize: 50,
+    fontSize: 17,
     marginTop: 10,
     flexDirection: "row",
+    textAlign: "center",
     justifyContent: "center"
   },
   speakerImage: {

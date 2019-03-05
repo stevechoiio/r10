@@ -11,6 +11,7 @@ import moment from "moment";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import LinearGradient from "react-native-linear-gradient";
+import GradientButton from "../../components/GradientButton";
 export default class Session extends Component {
   render() {
     return (
@@ -62,9 +63,8 @@ export default class Session extends Component {
         <View
           style={{ marginTop: 10, borderStyle: "solid", borderWidth: 0.5 }}
         />
-        <TouchableOpacity
-          style={styles.favouriteButton}
-          onPress={() => {
+        <GradientButton
+          link={() => {
             if (this.props.value.faveIDs.includes(this.props.data.id)) {
               this.props.value.removeFaveId(this.props.data.id);
               this.props.navigation.goBack();
@@ -73,27 +73,12 @@ export default class Session extends Component {
             }
           }}
         >
-          <View>
-            <LinearGradient
-              colors={["#47227f", "#9963ea"]}
-              start={{ x: 0.0, y: 1.0 }}
-              end={{ x: 1.0, y: 0.0 }}
-              style={[
-                StyleSheet.absoluteFill,
-                { height: "100%", width: "100%", borderRadius: 30 }
-              ]}
-            />
-            {this.props.value.faveIDs.includes(this.props.data.id) ? (
-              <Text style={{ color: "white", padding: 20 }}>
-                Remove from Favourite
-              </Text>
-            ) : (
-              <Text style={{ color: "white", padding: 20 }}>
-                Add to Favourite
-              </Text>
-            )}
-          </View>
-        </TouchableOpacity>
+          {this.props.value.faveIDs.includes(this.props.data.id) ? (
+            <Text style={styles.favouriteButton}>Remove from Favourite</Text>
+          ) : (
+            <Text style={styles.favouriteButton}>Add to Favourite</Text>
+          )}
+        </GradientButton>
       </View>
     );
   }

@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { styles } from "./styles";
+import GradientButton from "../../components/GradientButton";
 export default class Speaker extends Component {
   render() {
     return (
@@ -47,25 +48,9 @@ export default class Speaker extends Component {
           />
           <Text style={styles.speakerName}>{this.props.data.name}</Text>
           <Text style={styles.speakerBio}>{this.props.data.bio}</Text>
-          <TouchableOpacity
-            onPress={() => Linking.openURL(this.props.data.url)}
-            style={{ marginTop: 25 }}
-          >
-            <View>
-              <LinearGradient
-                colors={["#47227f", "#9963ea"]}
-                start={{ x: 0.0, y: 1.0 }}
-                end={{ x: 1.0, y: 0.0 }}
-                style={[
-                  StyleSheet.absoluteFill,
-                  { height: "100%", width: "100%", borderRadius: 30 }
-                ]}
-              />
-              <Text style={styles.wikiButton}>
-                Learn more about the Speaker
-              </Text>
-            </View>
-          </TouchableOpacity>
+          <GradientButton link={() => Linking.openURL(this.props.data.url)}>
+            Learn More about the Speaker
+          </GradientButton>
         </View>
       </View>
     );
