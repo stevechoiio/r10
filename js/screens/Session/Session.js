@@ -1,16 +1,8 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  Image,
-  Platform,
-  StyleSheet
-} from "react-native";
+import { Text, View, TouchableOpacity, Image, Platform } from "react-native";
 import moment from "moment";
 import { styles } from "./styles";
 import Icon from "react-native-vector-icons/Ionicons";
-import LinearGradient from "react-native-linear-gradient";
 import GradientButton from "../../components/GradientButton";
 export default class Session extends Component {
   render() {

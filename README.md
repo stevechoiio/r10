@@ -8,14 +8,21 @@ R10 is a hybrid mobile application that displays information about the event,sch
 
 ## Screenshots
 
-- Will be uploaded soon
+### About Tab
+
+<img src="./images/About.png" width="1200" height="600">
+### Schedule Tab
+<img src="./images/Schedule.png" width="1200" height="600">
+### Session Tab
+<img src="./images/Session.png" width="1200" height="600">
+### Speaker Stack
+<img src="./images/Speaker.png" width="1200" height="600">
 
 ## Technologies Used
 
 `Development`:
 
 -React Native
-
 
 ## Installation Instructions
 
