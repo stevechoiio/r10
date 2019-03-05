@@ -6,7 +6,7 @@ import Maps from "../screens/Maps";
 import Schedule from "../screens/Schedule";
 import Session from "../screens/Session";
 import Icon from "react-native-vector-icons/Ionicons";
-import { sharedNavigationOptions } from "./config.ios";
+import { sharedNavigationOptions } from "./config";
 
 const AboutStack = createStackNavigator(
   {

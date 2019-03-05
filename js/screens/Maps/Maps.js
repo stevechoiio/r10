@@ -1,14 +1,10 @@
-import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import React from "react";
+import { Text, View } from "react-native";
 
-export default class Maps extends Component {
-  render() {
-    return (
-      <View>
-        <Text>Maps Screen</Text>
-      </View>
-    );
-  }
-}
+export const Maps = () => {
+  return (
+    <View>
+      <Text>Maps Screen</Text>
+    </View>
+  );
+};

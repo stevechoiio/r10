@@ -11,5 +11,12 @@ export const styles = StyleSheet.create({
     borderColor: "#e6e6e6",
     borderStyle: "solid",
     borderWidth: 0.5
+  },
+  text: {
+    fontFamily: "Montserrat"
+  },
+  textContainer: {
+    justifyContent: "center",
+    alignItems: "center"
   }
 });

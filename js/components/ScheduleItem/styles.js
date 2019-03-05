@@ -24,6 +24,8 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10
   },
+  heartIcon: { marginRight: 10, marginTop: 6 },
+
   location: {
     marginLeft: 10,
     marginBottom: 10,

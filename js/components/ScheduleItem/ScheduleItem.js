@@ -17,18 +17,16 @@ export const ScheduleItem = ({ item, fav, navigate }) => {
         underlayColor={"#e6e6e6"}
       >
         <View>
-          <Text style={styles.title}>{item.title}</Text>
-
           <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between"
             }}
           >
-            <Text style={styles.location}>{item.location}</Text>
+            <Text style={styles.title}>{item.title} </Text>
             {fav.faveIDs.includes(item.id) ? (
               <Icon
-                style={{ marginRight: 10 }}
+                style={styles.heartIcon}
                 name={Platform.select({
                   ios: "ios-heart",
                   android: "md-heart"
@@ -37,6 +35,10 @@ export const ScheduleItem = ({ item, fav, navigate }) => {
                 color={"#cf392a"}
               />
             ) : null}
+          </View>
+
+          <View>
+            <Text style={styles.location}>{item.location}</Text>
           </View>
         </View>
       </TouchableHighlight>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Speaker from "./Speaker";
+import { Speaker } from "./Speaker";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import { ActivityIndicator } from "react-native";

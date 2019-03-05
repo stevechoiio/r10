@@ -13,9 +13,11 @@ export const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold"
   },
-  time: { color: "#cf392a" },
+  time: { color: "#cf392a", marginTop: 10 },
   content: {
-    lineHeight: 35
+    lineHeight: 25,
+    marginTop: 20,
+    marginBottom: 10
   },
   favouriteButton: {
     fontSize: 17,

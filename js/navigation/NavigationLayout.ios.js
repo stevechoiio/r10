@@ -10,7 +10,7 @@ import Maps from "../screens/Maps";
 import Schedule from "../screens/Schedule";
 import Session from "../screens/Session";
 import Icon from "react-native-vector-icons/Ionicons";
-import { sharedNavigationOptions } from "./config.ios";
+import { sharedNavigationOptions } from "./config";
 
 const AboutStack = createStackNavigator(
   {
@@ -47,7 +47,8 @@ const MapsStack = createStackNavigator(
 );
 const FavesStack = createStackNavigator(
   {
-    Favourites
+    Favourites,
+    Session
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -71,7 +72,7 @@ export default createBottomTabNavigator(
         if (routeName === "About") {
           iconName = `ios-information-circle`;
         } else if (routeName === "Schedule") {
-          iconName = `ios-options`;
+          iconName = `ios-calendar`;
         } else if (routeName === "Maps") {
           iconName = "ios-map";
         } else if (routeName === "Faves") {
